@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import BurgerButton from '../BurgerButton/BurgerButton';
 import useResize from '../../hooks/useResize';
+import accImg from '../../images/icon__account.svg';
+import accImgLanding from '../../images/icon__account-landing.svg';
 
 import {
   ENDPOINT_PROFILE,
@@ -80,15 +82,10 @@ function Navigation({ isloggedIn, pathname }) {
                     onClick={handleCloseMenu}
                   >
                     Аккаунт
-                    <button
-                      className={`navigation__account-btn ${
-                        pathname !== '/'
-                          ? ''
-                          : 'navigation__account-btn_type_landing'
-                      }`}
-                      type="button"
-                      aria-label="Кнопка аккаунта"
-                    ></button>
+                    {pathname !== '/'
+                      ? <img className='navigation__account-img' src={accImg} alt="Ссылка на аккаунт"></img>
+                      : <img className='navigation__account-img' src={accImgLanding} alt="Ссылка на аккаунт главной страницы"></img>
+                    }
                   </NavLink>
                 </div>
               </>
@@ -125,15 +122,10 @@ function Navigation({ isloggedIn, pathname }) {
                 to={ENDPOINT_PROFILE}
               >
                 Аккаунт
-                <button
-                  className={`navigation__account-btn ${
-                    pathname !== '/'
-                      ? ''
-                      : 'navigation__account-btn_type_landing'
-                  }`}
-                  type="button"
-                  aria-label="Кнопка аккаунта"
-                ></button>
+                {pathname !== '/'
+                  ? <img className='navigation__account-img' src={accImg} alt="Ссылка на аккаунт"></img>
+                  : <img className='navigation__account-img navigation__account-img_type_landing' src={accImgLanding} alt="Ссылка на аккаунт главной страницы"></img>
+                    }
               </NavLink>
             </div>
           </nav>

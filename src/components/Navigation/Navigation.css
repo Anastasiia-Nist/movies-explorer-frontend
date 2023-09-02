@@ -30,22 +30,15 @@
   font-weight: 500;
   line-height: 16px;
 }
-.navigation__account-btn {
-  background-color: #f9f9f9;
+.navigation__account-img {
   border-radius: 6px;
-  background-image: url('../../images/icon__account.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-  padding: 15px;
+  width: 30px;
+  height: 30px;
+  padding: 8px;
+  background-color: #F9F9F9;
 }
-.navigation__account-btn_type_landing {
+.navigation__account-img_type_landing {
   background-color: #000;
-  border-radius: 6px;
-  background-image: url('../../images/icon__account-landing.svg');
-  fill: #000;
-  background-repeat: no-repeat;
-  background-position: center;
-  padding: 15px;
 }
 @media screen and (max-width: 800px) {
   .navigation__wrapper {
@@ -91,7 +84,7 @@
     opacity: 1;
   }
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 530px) {
   .navigation__container {
     width: 100%;
     padding: 144px 0 48px;

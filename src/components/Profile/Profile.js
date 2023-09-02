@@ -1,7 +1,9 @@
 import './Profile.css';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import useFormAndValidation from '../../hooks/useFormAndValidation';
 import Input from '../Input/Input';
+import { ENDPOINT_ROOT } from '../../utils/constants';
 
 function Profile() {
   const [isEditProfile, setIsEditProfile] = useState(false);
@@ -28,7 +30,7 @@ function Profile() {
   }, []);
   return (
     <main className="profile">
-      <div className="profile__container">
+      <section className="profile__container">
         <h1 className="profile__title">Привет, Настя!</h1>
         <form className="profile__form" name="profile" onSubmit={handleSubmit}>
           <div className="profile__inputs-container">
@@ -83,24 +85,22 @@ function Profile() {
               <button
                 type="button"
                 className="profile__btn-edit button"
-                href="/"
                 onClick={handleClickEditProfile}
                 aria-label="Редактировать профиль"
               >
                 Редактировать
               </button>
-              <button
-                type="button"
+              <Link
                 className="profile__btn-logout button"
-                aria-label="Выйти из аккаунта"
+                to={ENDPOINT_ROOT}
                 onClick={onLogout}
               >
                 Выйти из аккаунта
-              </button>
+              </Link>
             </div>
           )}
         </form>
-      </div>
+      </section>
     </main>
   );
 }

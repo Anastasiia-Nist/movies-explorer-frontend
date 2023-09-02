@@ -7,7 +7,7 @@ import AboutStudent from '../AboutStudent/AboutStudent';
 function Main() {
   return (
     <>
-      <main>
+      <main className='main'>
         <Promo />
         <Shortcut />
         <AboutProject />

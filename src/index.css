@@ -37,6 +37,7 @@ img {
 
 .page {
   max-width: 1280px;
+  height: 100vh;
   margin: 0 auto;
   font-family: "Inter", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -46,7 +47,14 @@ img {
   -moz-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
 }
-
+.main {
+  flex: 1 1 auto
+}
+.page__wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
 .link {
   text-decoration: none;
   cursor: pointer;
@@ -65,3 +73,4 @@ img {
 .button:hover {
   opacity: 0.8;
 }
+/* * { outline: 1px solid red; } */

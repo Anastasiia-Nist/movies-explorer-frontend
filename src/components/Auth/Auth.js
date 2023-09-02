@@ -12,7 +12,7 @@ function Auth({
   link,
 }) {
   return (
-    <main className="auth">
+    <section className="auth">
       <div className="auth__container">
         <h1 className="auth__title">{title}</h1>
         <form className="auth__form" name={formName} onSubmit={onSubmit}>
@@ -40,7 +40,7 @@ function Auth({
           </Link>
         </div>
       </div>
-    </main>
+    </section>
   );
 }
 

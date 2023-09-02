@@ -19,7 +19,7 @@ function MoviesCard({
     setIsSavedMovie(!isSavedMovie);
   }
   return (
-    <article className="movies-card">
+    <li className="movies-card">
       <div className="movies-card__container">
         <a
           href={trailerLink}
@@ -34,7 +34,7 @@ function MoviesCard({
                 ? `${image}`
                 : `${URL_BEATFILM_MOVIES}${image?.url}`
             }
-            alt={nameRU}
+            alt={`Постер к фильму ${nameRU}`}
           />
         </a>
         <div className="movies-card__description">
@@ -67,7 +67,7 @@ function MoviesCard({
             </button>
           ))}
       </div>
-    </article>
+    </li>
   );
 }
 export default MoviesCard;

@@ -5,7 +5,7 @@ import { ENDPOINT_ROOT } from '../../utils/constants';
 
 function Logo() {
   return (
-    <Link className="logo" to={ENDPOINT_ROOT}>
+    <Link className="logo link" to={ENDPOINT_ROOT}>
       <img className="logo__img" src={logo} alt="Лого Movies Explorer"></img>
     </Link>
   );

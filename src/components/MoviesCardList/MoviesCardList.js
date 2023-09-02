@@ -6,7 +6,7 @@ function MoviesCardList({ testMovies }) {
   const { pathname } = useLocation();
   return (
     <section className="movies-card-list">
-      <div className="movies-card-list__container">
+      <ul className="movies-card-list__container">
         {testMovies.map(
           movie => (movie.id <= 12 || movie._id)
           && (
@@ -17,10 +17,10 @@ function MoviesCardList({ testMovies }) {
               />
           ),
         )}
-      </div>
+      </ul>
       <div className="movies-card-list__more">
         {pathname === '/movies' && (
-          <button className="movies-card-list__btn-more button">Ещё</button>
+          <button className="movies-card-list__btn-more button" type='button'>Ещё</button>
         )}
       </div>
     </section>

@@ -4,7 +4,7 @@ import SearchForm from '../SearchForm/SearchForm';
 
 function SavedMovies() {
   return (
-    <main>
+    <main className='main'>
       <SearchForm />
       <MoviesCardList testMovies={testSavedMovies} />
     </main>

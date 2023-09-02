@@ -13,7 +13,7 @@ function Movies() {
     makeRequest();
   });
   return (
-    <main>
+    <main className='main'>
       <SearchForm />
       <MoviesCardList testMovies={testMovies}/>
     </main>
