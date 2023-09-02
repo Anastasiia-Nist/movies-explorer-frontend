@@ -20,10 +20,10 @@
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  padding-top: 105px;
+  padding-top: 108px;
 }
 .profile__inputs-container {
-  padding-bottom: 200px;
+  padding-bottom: 206px;
 }
 .profile__buttons {
   position: relative;
@@ -82,7 +82,7 @@
     padding-top: 80px;
   }
   .profile__inputs-container {
-    padding-bottom: 190px;
+    padding-bottom: 196px;
   }
 }
 @media screen and (max-width: 500px) {
@@ -93,7 +93,7 @@
     max-width: 260px;
   }
   .profile__form {
-    padding-top: 62px;
+    padding-top: 66px;
   }
   .profile__inputs-container {
     padding-bottom: 360px;

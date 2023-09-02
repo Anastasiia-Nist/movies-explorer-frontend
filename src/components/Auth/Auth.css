@@ -35,10 +35,10 @@
   width: 100%;
 }
 .auth__btn-submit_type_login {
-  margin-top: 176px;
+  margin-top: 178px;
 }
 .auth__btn-submit_type_register {
-  margin-top: 88px;
+  margin-top: 90px;
 }
 .auth__text {
   padding-top: 16px;
@@ -96,7 +96,7 @@
     font-size: 12px;
   }
   .auth__btn-submit_type_login {
-    margin-top: 260px;
+    margin-top: 266px;
   }
   .auth__btn-submit_type_register {
     margin-top: 177px;
