@@ -21,10 +21,6 @@ function Profile() {
     // логика передачи данных
     setIsEditProfile(false);
   }
-  function onLogout() {
-    // логика выхода из аккаунта
-    setIsEditProfile(false);
-  }
   useEffect(() => {
     setValues({ name: 'Настя', email: 'anist@gmail.com' });
   }, []);
@@ -91,9 +87,8 @@ function Profile() {
                 Редактировать
               </button>
               <Link
-                className="profile__btn-logout button"
+                className="profile__btn-logout link"
                 to={ENDPOINT_ROOT}
-                onClick={onLogout}
               >
                 Выйти из аккаунта
               </Link>
