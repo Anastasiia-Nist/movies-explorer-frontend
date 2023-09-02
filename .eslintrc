@@ -1,0 +1,35 @@
+{
+    "env": {
+      "browser": true,
+      "commonjs": true,
+      "es2021": true
+    },
+    "extends": [
+        "airbnb-base",
+        "plugin:react/recommended",
+        "plugin:react/jsx-runtime"
+      ],
+    "parserOptions": {
+      "ecmaVersion": "latest",
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "plugins": [
+        "react"
+      ],
+    "rules": {
+      "no-underscore-dangle": "off",
+      "no-console": "off",
+      "react/jsx-uses-react": "error",
+      "react/jsx-uses-vars": "error",
+      "react/prop-types": "off",
+      "class-methods-use-this": "off",
+      "react/react-in-jsx-scope": "off",
+      "react/jsx-props-no-spreading": "off",
+      "prefer-arrow-callback": ["error", { "allowNamedFunctions": true }],
+      "arrow-parens": [2, "as-needed", { "requireForBlockBody": true }],
+      "prefer-promise-reject-errors": "off"
+    }
+  }

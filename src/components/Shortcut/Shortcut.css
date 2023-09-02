@@ -1,0 +1,33 @@
+.shortcut {
+  min-height: 66px;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+}
+
+.shortcut__list {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.shortcut__item {
+  color: #fff;
+  padding-bottom: 1.5px;
+  transition: 0.3s;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+}
+.shortcut__item:hover {
+  border-bottom: 1.2px solid #fff;
+}
+@media screen and (max-width: 400px) {
+  .shortcut__list {
+    gap: 24px;
+  }
+  .shortcut__item {
+    font-size: 11px;
+  }
+}

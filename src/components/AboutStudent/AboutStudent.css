@@ -1,0 +1,122 @@
+.about-sudent {
+  padding: 0 70px 105px;
+}
+.about-sudent__description {
+  display: flex;
+  justify-content: space-between;
+}
+.about-sudent__text-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.about-sudent__foto-container {
+  margin-top: 66px;
+  max-width: 270px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.about-sudent__foto {
+  aspect-ratio: 270 / 327;
+  object-fit: cover;
+}
+.about-sudent__name {
+  padding-top: 66px;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 58px;
+  letter-spacing: -2px;
+}
+.about-sudent__prof {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+}
+.about-sudent__text {
+  flex-grow: 1;
+  padding-top: 6px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+}
+.about-sudent__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.about-sudent__link {
+  color: #000;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+@media screen and (max-width: 800px) {
+  .about-sudent {
+    padding: 0 50px 70px;
+  }
+  .about-sudent__text-container {
+    gap: 16px;
+  }
+  .about-sudent__name {
+    font-size: 40px;
+    line-height: 40px;
+    letter-spacing: -1.6px;
+  }
+  .about-sudent__foto-container {
+    margin-top: 66px;
+    max-width: 255px;
+  }
+  .about-sudent__foto {
+    aspect-ratio: 255 / 307;
+  }
+  .about-sudent__prof {
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .about-sudent__text {
+    font-size: 12px;
+    line-height: 18px;
+    padding-top: 4px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .about-sudent {
+    /* не стала делать отступ в 14 пикселей, потому что это скорее всего недоработка макета */
+    padding: 0 18px 50px;
+  }
+  .about-sudent__description {
+    flex-direction: column;
+  }
+  .about-sudent__text-container {
+    gap: 20px;
+  }
+  .about-sudent__name {
+    padding-top: 40px;
+    font-size: 30px;
+    line-height: normal;
+    letter-spacing: -1.2px;
+  }
+  .about-sudent__foto-container {
+    order: -1;
+    max-width: 352px;
+    margin-top: 60px;
+  }
+  .about-sudent__foto {
+    aspect-ratio: 292 / 352;
+  }
+  .about-sudent__prof {
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .about-sudent__text {
+    font-size: 11px;
+    line-height: 16px;
+  }
+}

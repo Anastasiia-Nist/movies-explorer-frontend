@@ -1,0 +1,33 @@
+.header {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 70px;
+}
+.header_type_landing {
+  background-color: #f3c1f8;
+}
+.header-auth {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 70px 0 40px;
+}
+
+@media screen and (max-width: 800px) {
+  .header {
+    padding: 18px 30px;
+  }
+  .header-auth {
+    padding-top: 232px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .header {
+    padding: 18px 14px;
+  }
+  .header-auth {
+    padding-top: 56px;
+    padding-bottom: 50px;
+  }
+}

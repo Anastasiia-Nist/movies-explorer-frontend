@@ -1,0 +1,124 @@
+.movies-card {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  max-width: 360px;
+}
+.movies-card__container {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+.movies-card__link {
+  border-radius: 6px;
+  overflow: hidden;
+  display: block;
+}
+.movies-card__image {
+  aspect-ratio: 360/201;
+  object-fit: cover;
+  object-position: center;
+}
+.movies-card__description {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 14px;
+}
+.movies-card__title {
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.movies-card__subtitle {
+  display: block;
+  background-color: #f9f9f9;
+  border-radius: 3px;
+  padding: 6px 10px;
+  color: #a0a0a0;
+  text-align: center;
+  font-family: Inter;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 10px;
+}
+.movies-card__btn {
+  position: absolute;
+  z-index: 10;
+  top: 14px;
+  right: 14px;
+  background-color: #f9f9f9;
+  border-radius: 30px;
+}
+.movies-card__btn-save {
+  padding: 6px 8px;
+  text-align: center;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 9px;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.movies-card__save-btn_active {
+  padding: 10px 10px;
+  background-image: url('../../images/save3.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 1;
+}
+.movies-card__container:hover .movies-card__btn-save {
+  opacity: 1;
+}
+.movies-card__btn-delete {
+  padding: 10px 10px;
+  background-image: url('../../images/d3.svg');
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.movies-card__container:hover .movies-card__btn-delete {
+  opacity: 1;
+}
+
+@media screen and (max-width: 800px) {
+  .movies-card {
+    max-width: 339px;
+  }
+  .movies-card__container {
+    gap: 23px;
+  }
+  .movies-card__image {
+    aspect-ratio: 339/190;
+  }
+  .movies-card__description {
+    padding: 0;
+  }
+  /* разве на планшетной версии не дожны быть кнопки тоже видны? */
+  /* .movies-card__btn-save {
+    opacity: 1;
+  } 
+  .movies-card__btn-delete {
+    opacity: 1;
+  } */
+}
+@media screen and (max-width: 400px) {
+  .movies-card {
+    max-width: 300px;
+  }
+  .movies-card__image {
+    aspect-ratio: 300/168;
+  }
+  .movies-card__container {
+    gap: 13px;
+  }
+  .movies-card__btn-save {
+    opacity: 1;
+    top: 10px;
+    right: 10px;
+  }
+  .movies-card__btn-delete {
+    opacity: 1;
+  }
+}
