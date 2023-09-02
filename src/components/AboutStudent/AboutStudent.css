@@ -85,9 +85,8 @@
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
   .about-sudent {
-    /* не стала делать отступ в 14 пикселей, потому что это скорее всего недоработка макета */
     padding: 0 18px 50px;
   }
   .about-sudent__description {

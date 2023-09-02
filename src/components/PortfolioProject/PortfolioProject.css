@@ -27,7 +27,7 @@
     letter-spacing: -1.12px;
   }
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
   .portfolio__name {
     font-size: 18px;
     line-height: 28px;

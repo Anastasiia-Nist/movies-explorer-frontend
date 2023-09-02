@@ -82,10 +82,11 @@ function Navigation({ isloggedIn, pathname }) {
                     onClick={handleCloseMenu}
                   >
                     Аккаунт
-                    {pathname !== '/'
-                      ? <img className='navigation__account-img' src={accImg} alt="Ссылка на аккаунт"></img>
-                      : <img className='navigation__account-img' src={accImgLanding} alt="Ссылка на аккаунт главной страницы"></img>
-                    }
+                    <img
+                      className="navigation__account-img"
+                      src={accImg}
+                      alt="Ссылка на аккаунт"
+                    ></img>
                   </NavLink>
                 </div>
               </>
@@ -122,10 +123,19 @@ function Navigation({ isloggedIn, pathname }) {
                 to={ENDPOINT_PROFILE}
               >
                 Аккаунт
-                {pathname !== '/'
-                  ? <img className='navigation__account-img' src={accImg} alt="Ссылка на аккаунт"></img>
-                  : <img className='navigation__account-img navigation__account-img_type_landing' src={accImgLanding} alt="Ссылка на аккаунт главной страницы"></img>
-                    }
+                {pathname !== '/' ? (
+                  <img
+                    className="navigation__account-img"
+                    src={accImg}
+                    alt="Ссылка на аккаунт"
+                  ></img>
+                ) : (
+                  <img
+                    className="navigation__account-img navigation__account-img_type_landing"
+                    src={accImgLanding}
+                    alt="Ссылка на аккаунт главной страницы"
+                  ></img>
+                )}
               </NavLink>
             </div>
           </nav>

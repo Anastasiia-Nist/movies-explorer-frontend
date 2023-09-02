@@ -26,10 +26,10 @@
   }
   .promo__title {
     margin-top: 326px;
-    max-width: 90%;
+    max-width: 92%;
   }
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
   .promo {
     min-height: 570px;
     background-size: 248px;

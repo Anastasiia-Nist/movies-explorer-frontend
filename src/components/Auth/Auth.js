@@ -16,15 +16,13 @@ function Auth({
       <div className="auth__container">
         <h1 className="auth__title">{title}</h1>
         <form className="auth__form" name={formName} onSubmit={onSubmit}>
-          <div className="auth__inputs-container">
-            {children}
-            {
-              /* request errors */
-              <span className="auth__submit-error auth__submit-error_active ">
-                Временное сообщение об ошибке.
-              </span>
-            }
-          </div>
+          <div className="auth__inputs-container">{children}</div>
+          {
+            /* request errors */
+            <span className="auth__submit-error">
+              Временное сообщение об ошибке.
+            </span>
+          }
           <button
             className={`auth__btn-submit button auth__btn-submit_type_${formName}`}
             disabled={!isValid}

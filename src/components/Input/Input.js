@@ -38,6 +38,7 @@ function Input({
         onChange={onChange}
         value={value || ''}
         disabled={!isEdit && true}
+        autoComplete="off"
       />
       {!isValid && (
         <span

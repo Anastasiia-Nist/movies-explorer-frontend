@@ -52,7 +52,7 @@
     line-height: 18px;
   }
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
   .technology {
     background-color: #fff;
     padding: 0 18px;

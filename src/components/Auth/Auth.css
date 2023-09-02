@@ -13,9 +13,14 @@
 }
 .auth__form {
   padding: 20px 0 0;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
+}
+.auth__inputs-container {
+  width: 100%;
 }
 .auth__btn-submit {
   border-radius: 3px;
@@ -30,10 +35,10 @@
   width: 100%;
 }
 .auth__btn-submit_type_login {
-  margin-top: 156px;
+  margin-top: 176px;
 }
 .auth__btn-submit_type_register {
-  margin-top: 68px;
+  margin-top: 88px;
 }
 .auth__text {
   padding-top: 16px;
@@ -58,13 +63,12 @@
   font-weight: 400;
   line-height: normal;
 }
-/* сейчас одна валидация накладывается на другую. Предпологается, что сообщение 
-с ошибкой ответа от сервера будет приходить после отправки формы, 
-т.е. после прохождения валидации инпутов */
+
 .auth__submit-error {
+  position: absolute;
+  text-align: center;
+  bottom: 60px;
   opacity: 0;
-  display: block;
-  padding-top: 10px;
   color: #ff004c;
   font-size: 10px;
   font-style: normal;
@@ -75,9 +79,7 @@
   opacity: 1;
 }
 
-/* Я так понимаю в данной работе инпуты не должны проходить валидацию?, 
-потому что для error-сообщений просто нет места */
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
   .auth {
     padding-bottom: 30px;
   }
@@ -94,9 +96,9 @@
     font-size: 12px;
   }
   .auth__btn-submit_type_login {
-    margin-top: 240px;
+    margin-top: 260px;
   }
   .auth__btn-submit_type_register {
-    margin-top: 157px;
+    margin-top: 177px;
   }
 }

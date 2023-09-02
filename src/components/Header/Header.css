@@ -9,9 +9,9 @@
   background-color: #f3c1f8;
 }
 .header-auth {
-  max-width: 400px;
-  margin: 0 auto;
+  min-width: 396px;
   padding: 70px 0 40px;
+  align-self: center;
 }
 
 @media screen and (max-width: 800px) {
@@ -22,11 +22,12 @@
     padding-top: 232px;
   }
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
   .header {
     padding: 18px 14px;
   }
   .header-auth {
+    min-width: auto;
     padding-top: 56px;
     padding-bottom: 50px;
   }

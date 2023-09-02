@@ -75,7 +75,7 @@
   top: 26px;
   right: 30px;
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
   .navigation__burger.navigation__btn-close {
     top: 26px;
     right: 14px;

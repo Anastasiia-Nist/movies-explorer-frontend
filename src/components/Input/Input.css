@@ -4,7 +4,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 0 15px;
   border-bottom: 1px solid #e8e8e8;
 }
 .input:nth-last-child(-n + 1) {
@@ -17,6 +16,7 @@
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  padding: 14px 0 15px;
 }
 .input__item {
   text-align: right;
@@ -26,10 +26,13 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  padding: 14px 0 15px;
 }
 .input__item:focus {
   outline: none;
-  background-color: #e8e8e8;
+}
+.input:has(> .input__item:focus)  {
+  border-bottom: 1px solid #3456F3;
 }
 .input__item:disabled {
   background-color: transparent;
@@ -37,14 +40,14 @@
 }
 .input-error_active {
   position: absolute;
-  top: 32px;
-  left: 0;
-  color: #ff0000;
+  top: 30px;
+  right: 0;
+  color: #ff004c;
   font-size: 10px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  text-align: left;
+  text-align: right;
 }
 /* AUTH */
 .input-auth {
@@ -73,13 +76,16 @@
   text-align: left;
 }
 .input-auth__item:focus {
+  background-color: #fff;
   outline: none;
+  border-radius: 0;
+  border-bottom: 1px solid #3456F3;
 }
 .input-auth-error_active {
   position: absolute;
-  bottom: -16px;
+  bottom: -20px;
   left: 0;
-  color: #ff0000;
+  color: #ff004c;
   font-size: 10px;
   font-style: normal;
   font-weight: 400;

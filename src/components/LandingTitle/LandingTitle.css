@@ -15,7 +15,7 @@
     padding-top: 90px;
   }
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
   .landing-title {
     padding: 70px 0 28px;
     font-size: 18px;

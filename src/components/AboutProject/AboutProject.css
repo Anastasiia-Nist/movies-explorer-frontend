@@ -42,7 +42,7 @@
     gap: 22px;
   }
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
   .about-project {
     padding: 0 18px;
   }

@@ -39,7 +39,7 @@
     padding-top: 60px;
   }
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
   .movies-card-list {
     padding: 52px 10px 0;
   }
@@ -47,6 +47,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     gap: 35px;
   }
 
