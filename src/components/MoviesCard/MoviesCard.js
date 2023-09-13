@@ -1,28 +1,46 @@
 import './MoviesCard.css';
-import { useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { URL_BEATFILM_MOVIES } from '../../utils/constants';
+import CurrentUserContext from '../../context/CurrentUserContext';
 
 function MoviesCard({
-  movie: {
-    duration, trailerLink, image, nameRU,
-  },
+  movie,
   pathname,
+  onSavedMovie,
+  onDeleteMovie,
+  savedMovies,
 }) {
   const [isSavedMovie, setIsSavedMovie] = useState(false);
+  const currentUser = useContext(CurrentUserContext);
   function convertDuration() {
-    const minutes = duration % 60;
-    const hours = Math.floor(duration / 60);
+    const minutes = movie.duration % 60;
+    const hours = Math.floor(movie.duration / 60);
     return `${hours}ч ${minutes}м`;
   }
-  function handleClick(evt) {
+  useEffect(() => {
+    savedMovies.forEach((card) => {
+      if (card.movieId === movie.id) {
+        setIsSavedMovie(true);
+      }
+    });
+  }, [currentUser]);
+  function toggleSavedCard(evt) {
     evt.target.classList.toggle('movies-card__save-btn_active');
     setIsSavedMovie(!isSavedMovie);
   }
+  function onSave(evt) {
+    onSavedMovie(movie, evt, toggleSavedCard);
+  }
+
+  function onDelete(evt) {
+    onDeleteMovie(movie, evt, toggleSavedCard);
+  }
+
   return (
     <li className="movies-card">
       <div className="movies-card__container">
         <a
-          href={trailerLink}
+          href={movie.trailerLink}
           className="movies-card__link"
           target="_blank"
           rel="nofollow noreferrer"
@@ -31,14 +49,14 @@ function MoviesCard({
             className="movies-card__image"
             src={
               pathname === '/saved-movies'
-                ? `${image}`
-                : `${URL_BEATFILM_MOVIES}${image?.url}`
+                ? `${movie.image}`
+                : `${URL_BEATFILM_MOVIES}${movie.image?.url}`
             }
-            alt={`Постер к фильму ${nameRU}`}
+            alt={`Постер к фильму ${movie.nameRU}`}
           />
         </a>
         <div className="movies-card__description">
-          <h2 className="movies-card__title">{nameRU}</h2>
+          <h2 className="movies-card__title">{movie.nameRU}</h2>
           <span className="movies-card__subtitle">{convertDuration()}</span>
         </div>
         {pathname === '/saved-movies' && (
@@ -46,22 +64,23 @@ function MoviesCard({
             className="movies-card__btn movies-card__btn-delete button"
             type="button"
             aria-label="Кнопка удалить"
+            onClick={onDelete}
           ></button>
         )}
         {pathname !== '/saved-movies'
           && (isSavedMovie ? (
             <button
-              className="movies-card__btn movies-card__btn-save button"
+              className="movies-card__btn movies-card__btn-save button movies-card__save-btn_active"
               type="button"
               aria-label="Кнопка фильм сохранён"
-              onClick={handleClick}
+              onClick={onDelete}
             ></button>
           ) : (
             <button
               className="movies-card__btn movies-card__btn-save button"
               type="button"
               aria-label="Кнопка сохранить"
-              onClick={handleClick}
+              onClick={onSave}
             >
               Сохранить
             </button>

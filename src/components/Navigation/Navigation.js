@@ -13,7 +13,7 @@ import {
   ENDPOINT_ROOT,
 } from '../../utils/constants';
 
-function Navigation({ isloggedIn, pathname }) {
+function Navigation({ loggedIn, pathname }) {
   const isMobile = useResize() <= 800;
   const [isMenuOpened, setIsMenuOpened] = useState(false);
 
@@ -27,7 +27,7 @@ function Navigation({ isloggedIn, pathname }) {
 
   return (
     <section className="navigation">
-      {isloggedIn && isMobile && (
+      {loggedIn && isMobile && (
         <BurgerButton
           handleOpenMenu={handleOpenMenu}
           isMenuOpened={isMenuOpened}
@@ -38,7 +38,7 @@ function Navigation({ isloggedIn, pathname }) {
           isMenuOpened ? 'navigation__wrapper_opened' : ''
         }`}
       >
-        {isloggedIn && isMobile ? (
+        {loggedIn && isMobile ? (
           <nav className="navigation__container">
             {isMenuOpened ? (
               <>

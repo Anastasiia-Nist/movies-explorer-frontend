@@ -1,15 +1,19 @@
+import { useContext } from 'react';
+import AppContext from '../../context/AppContext';
 import useFormAndValidation from '../../hooks/useFormAndValidation';
 import Input from '../Input/Input';
 import Auth from '../Auth/Auth';
 
-function Login() {
+function Login({ handleLogin, requestMessage, resetErrorRequestMessage }) {
+  const app = useContext(AppContext);
+  // валидация формы
   const {
     values, handleChange, errors, isValid,
   } = useFormAndValidation({});
-
+  // отправка формы
   function handleSubmit(evt) {
     evt.preventDefault();
-    // логика передачи данных
+    handleLogin(values);
   }
 
   return (
@@ -19,9 +23,11 @@ function Login() {
         formName="login"
         onSubmit={handleSubmit}
         isValid={isValid}
-        buttonText="Войти"
+        buttonText={app.isLoading ? 'Вход...' : 'Войти'}
         text="Ещё не зарегистрированы?"
         link="/signup"
+        requestMessage={requestMessage}
+        resetRequestMessage={resetErrorRequestMessage}
       >
         <Input
           label="E-mail"
@@ -49,7 +55,7 @@ function Login() {
           onChange={handleChange}
           errors={errors.password}
           isValid={isValid}
-           isEdit={true}
+          isEdit={true}
         />
       </Auth>
     </main >

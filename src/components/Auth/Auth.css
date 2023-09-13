@@ -34,6 +34,10 @@
   padding: 13px 0;
   width: 100%;
 }
+.auth__btn-submit:disabled {
+  background-color: #f8f8f8;
+  color: #c2c2c2;
+}
 .auth__btn-submit_type_login {
   margin-top: 178px;
 }
@@ -68,15 +72,11 @@
   position: absolute;
   text-align: center;
   bottom: 60px;
-  opacity: 0;
   color: #ff004c;
   font-size: 10px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-}
-.auth__submit-error_active {
-  opacity: 1;
 }
 
 @media screen and (max-width: 500px) {

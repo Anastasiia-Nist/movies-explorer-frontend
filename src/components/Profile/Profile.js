@@ -1,15 +1,24 @@
 import './Profile.css';
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import CurrentUserContext from '../../context/CurrentUserContext';
 import useFormAndValidation from '../../hooks/useFormAndValidation';
 import Input from '../Input/Input';
-import { ENDPOINT_ROOT } from '../../utils/constants';
 
-function Profile() {
+function Profile({
+  onLogout,
+  handleUpdateUser,
+  requestMessage,
+  successRequestMessage,
+  resetErrorRequestMessage,
+  resetSuccessRequestMessage,
+}) {
+  const navigate = useNavigate();
+  const { name, email } = useContext(CurrentUserContext);
   const [isEditProfile, setIsEditProfile] = useState(false);
 
   const {
-    values, handleChange, errors, isValid, setValues,
+    values, handleChange, errors, isValid, setValues, setIsValid,
   } = useFormAndValidation({});
 
   function handleClickEditProfile(evt) {
@@ -18,16 +27,31 @@ function Profile() {
   }
   function handleSubmit(evt) {
     evt.preventDefault();
-    // логика передачи данных
-    setIsEditProfile(false);
+    handleUpdateUser(values);
   }
+  // отрисовка данных пользователя
   useEffect(() => {
-    setValues({ name: 'Настя', email: 'anist@gmail.com' });
-  }, []);
+    setValues({ name, email });
+    setIsEditProfile(false);
+  }, [name, email]);
+  // проверка на различие старых данных пользователя и новых
+  useEffect(() => {
+    if (values.name === name && values.email === email) {
+      setIsValid(false);
+    }
+  }, [values]);
+  // очистка сообщения об ошибке от сервера
+  useEffect(() => {
+    resetErrorRequestMessage();
+  }, [values]);
+  // очистка сообщения об успешном обновлении данных от сервера
+  useEffect(() => {
+    resetSuccessRequestMessage();
+  }, [navigate]);
   return (
     <main className="profile">
       <section className="profile__container">
-        <h1 className="profile__title">Привет, Настя!</h1>
+        <h1 className="profile__title">Привет, {name || 'пользователь'}!</h1>
         <form className="profile__form" name="profile" onSubmit={handleSubmit}>
           <div className="profile__inputs-container">
             <Input
@@ -63,8 +87,8 @@ function Profile() {
             <div className="profile__buttons">
               {
                 /* request errors */
-                <span className="profile__submit-error">
-                  Временное сообщение об ошибке.
+                <span className="profile__submit profile__submit_error">
+                  {requestMessage}
                 </span>
               }
               <button
@@ -78,6 +102,12 @@ function Profile() {
             </div>
           ) : (
             <div className="profile__buttons">
+              {
+                /* request success */
+                <span className="profile__submit profile__submit_success">
+                  {successRequestMessage}
+                </span>
+              }
               <button
                 type="button"
                 className="profile__btn-edit button"
@@ -86,12 +116,13 @@ function Profile() {
               >
                 Редактировать
               </button>
-              <Link
+              <button
                 className="profile__btn-logout link"
-                to={ENDPOINT_ROOT}
+                type="button"
+                onClick={onLogout}
               >
                 Выйти из аккаунта
-              </Link>
+              </button>
             </div>
           )}
         </form>

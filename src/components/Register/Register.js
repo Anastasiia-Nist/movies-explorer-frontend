@@ -1,17 +1,20 @@
+import { useContext } from 'react';
+import AppContext from '../../context/AppContext';
 import useFormAndValidation from '../../hooks/useFormAndValidation';
 import Input from '../Input/Input';
 import Auth from '../Auth/Auth';
 
-function Register() {
+function Register({ handleRegister, requestMessage, resetErrorRequestMessage }) {
+  const app = useContext(AppContext);
+  // валидация формы
   const {
     values, handleChange, errors, isValid,
   } = useFormAndValidation({});
-
+  // отправка формы
   function handleSubmit(evt) {
     evt.preventDefault();
-    // логика передачи данных
+    handleRegister(values);
   }
-
   return (
     <main>
       <Auth
@@ -19,9 +22,11 @@ function Register() {
         formName="register"
         onSubmit={handleSubmit}
         isValid={isValid}
-        buttonText="Зарегистрироваться"
+        buttonText={app.isLoading ? 'Регистрация...' : 'Зарегистрироваться'}
         text="Уже зарегистрированы?"
         link="/signin"
+        requestMessage={requestMessage}
+        resetRequestMessage={resetErrorRequestMessage}
       >
         <Input
           label="Имя"

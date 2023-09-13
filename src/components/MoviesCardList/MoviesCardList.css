@@ -11,6 +11,10 @@
   gap: 54px 30px;
   grid-template-columns: repeat(auto-fit, 360px);
 }
+.movies-card-list__error-container {
+  text-align: center;
+  padding-top: 20px;
+}
 .movies-card-list__more {
   padding: 76px 0 80px;
   display: flex;

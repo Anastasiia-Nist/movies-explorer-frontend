@@ -1,6 +1,7 @@
 // URL
 export const URL_BEATFILM_MOVIES = 'https://api.nomoreparties.co';
 export const URL_BASE = 'https://api.diploma-by-anastasiia.nomoreparties.co';
+// export const URL_BASE = 'http://localhost:3000';
 
 // ENDPOINTS
 export const ENDPOINT_ROOT = '/';
@@ -42,61 +43,3 @@ export function smoothScroll(evt) {
     block: 'start',
   });
 }
-
-// временное решение для вёрстки
-export const testSavedMovies = [
-  {
-    _id: '64d6372ee22d9f2c6841d095',
-    country: 'Франция',
-    director: 'Люк Бессон',
-    duration: 126,
-    year: '1996',
-    description:
-      'Последняя надежда человечества — безалаберный нью-йоркский таксист.',
-    image:
-      'https://tvbesedka.com/Upload/2019/5/12/22/40/1/e7b1cf20-a87b-46d5-bff1-22f0df772ba8.jpg',
-    trailerLink: 'https://www.youtube.com/watch?v=KpTzOwsq36c',
-    thumbnail: 'https://www.yaom.ru/tv-programm/tvimg/pyatyj-element.jpg',
-    owner: '64d63428e22d9f2c6841d08f',
-    movieId: 1001,
-    nameRU: 'Пятый элемент',
-    nameEN: 'The Fifth Element',
-    __v: 0,
-  },
-  {
-    _id: '64d6372ee22d9f2c6841d095',
-    country: 'Франция',
-    director: 'Люк Бессон',
-    duration: 126,
-    year: '1996',
-    description:
-      'Последняя надежда человечества — безалаберный нью-йоркский таксист.',
-    image:
-      'https://tvbesedka.com/Upload/2019/5/12/22/40/1/e7b1cf20-a87b-46d5-bff1-22f0df772ba8.jpg',
-    trailerLink: 'https://www.youtube.com/watch?v=KpTzOwsq36c',
-    thumbnail: 'https://www.yaom.ru/tv-programm/tvimg/pyatyj-element.jpg',
-    owner: '64d63428e22d9f2c6841d08f',
-    movieId: 1001,
-    nameRU: 'Пятый элемент',
-    nameEN: 'The Fifth Element',
-    __v: 0,
-  },
-  {
-    _id: '64d6372ee22d9f2c6841d095',
-    country: 'Франция',
-    director: 'Люк Бессон',
-    duration: 126,
-    year: '1996',
-    description:
-      'Последняя надежда человечества — безалаберный нью-йоркский таксист.',
-    image:
-      'https://tvbesedka.com/Upload/2019/5/12/22/40/1/e7b1cf20-a87b-46d5-bff1-22f0df772ba8.jpg',
-    trailerLink: 'https://www.youtube.com/watch?v=KpTzOwsq36c',
-    thumbnail: 'https://www.yaom.ru/tv-programm/tvimg/pyatyj-element.jpg',
-    owner: '64d63428e22d9f2c6841d08f',
-    movieId: 1001,
-    nameRU: 'Пятый элемент',
-    nameEN: 'The Fifth Element',
-    __v: 0,
-  },
-];

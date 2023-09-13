@@ -1,23 +1,16 @@
 import './FilterCheckbox.css';
-import { useState } from 'react';
 
-function FilterCheckbox() {
-  const [isShortFilm, setIsShortFilm] = useState(false);
-  function toogleeFilterCheckbox() {
-    setIsShortFilm(!isShortFilm);
-  }
+function FilterCheckbox({ onShorts }) {
   return (
     <label className="filter" htmlFor="checkbox">
       <input
         className="filter__checkbox"
         type="checkbox"
         id="checkbox"
-        onChange={toogleeFilterCheckbox}
+        onChange={onShorts}
       />
       <span
-        className={`button filter__slider ${
-          isShortFilm ? 'filter__slider_active' : ''
-        }`}
+        className='button filter__slider'
       />
       Короткометражки
     </label>

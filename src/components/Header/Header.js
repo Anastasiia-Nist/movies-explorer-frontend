@@ -4,7 +4,7 @@ import AuthNavigation from '../AuthNavigation/AuthNavigation';
 import Navigation from '../Navigation/Navigation';
 import Logo from '../Logo/Logo';
 
-function Header({ isloggedIn }) {
+function Header({ loggedIn }) {
   const { pathname } = useLocation();
 
   return (
@@ -17,8 +17,8 @@ function Header({ isloggedIn }) {
           className={`header ${pathname === '/' ? 'header_type_landing' : ''}`}
         >
           <Logo />
-          {isloggedIn ? (
-            <Navigation isloggedIn={isloggedIn} pathname={pathname} />
+          {loggedIn ? (
+            <Navigation loggedIn={loggedIn} pathname={pathname} />
           ) : (
             <AuthNavigation />
           )}

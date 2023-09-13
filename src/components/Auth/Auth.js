@@ -1,5 +1,6 @@
 import './Auth.css';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
 function Auth({
   title,
@@ -10,7 +11,13 @@ function Auth({
   buttonText,
   text,
   link,
+  requestMessage,
+  resetRequestMessage,
 }) {
+  // очистка сообщения об ошибке от сервера
+  useEffect(() => {
+    resetRequestMessage();
+  }, []);
   return (
     <section className="auth">
       <div className="auth__container">
@@ -20,12 +27,12 @@ function Auth({
           {
             /* request errors */
             <span className="auth__submit-error">
-              Временное сообщение об ошибке.
+              {requestMessage}
             </span>
           }
           <button
             className={`auth__btn-submit button auth__btn-submit_type_${formName}`}
-            disabled={!isValid}
+            disabled={!isValid && true}
             type="submit"
           >
             {buttonText}

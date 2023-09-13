@@ -7,10 +7,9 @@ export class Api {
   }
 
   //
-  _request(endpoint, options) {
-    return fetch(`${this._baseUrl}/${endpoint}`, options).then(
-      this._checkResult,
-    );
+  async _request(endpoint, options) {
+    const res = await fetch(`${this._baseUrl}/${endpoint}`, options);
+    return this._checkResult(res);
   }
 
   _checkResult(res) {
@@ -20,9 +19,8 @@ export class Api {
     return Promise.reject(`Что-то сломалось. Ошибка: ${res.status}`);
   }
 
-  // временное решение для вёрстки
   getMovies() {
-    return this._request('beatfilm-movies');
+    return this._request('beatfilm-movies', { headers: this._headers });
   }
 }
 const dataApi = {
@@ -31,5 +29,5 @@ const dataApi = {
     'Content-Type': 'application/json',
   },
 };
-const api = new Api(dataApi);
-export default api;
+const moviesApi = new Api(dataApi);
+export default moviesApi;

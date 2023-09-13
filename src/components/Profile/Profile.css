@@ -64,8 +64,7 @@
   background: #f8f8f8;
   color: #c2c2c2;
 }
-.profile__submit-error {
-  color: #ff004c;
+.profile__submit {
   text-align: center;
   font-size: 11px;
   font-style: normal;
@@ -73,6 +72,12 @@
   line-height: normal;
   position: absolute;
   bottom: 64px;
+}
+.profile__submit_error {
+  color: #ff004c;
+}
+.profile__submit_success {
+  color: #3456F3;
 }
 @media screen and (max-width: 800px) {
   .profile {
