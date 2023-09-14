@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import SearchForm from '../SearchForm/SearchForm';
+import { messageSearch } from '../../utils/errors';
 
 function SavedMovies({ onDeleteMovie, onfilteredMovies, movies }) {
   const [errorMessage, setErrorMessage] = useState('');
@@ -20,11 +21,11 @@ function SavedMovies({ onDeleteMovie, onfilteredMovies, movies }) {
     } else setSearchMovies(filterMovies);
     // сообщения об ошибках после поиска
     if (search === '') {
-      setErrorMessage('«Нужно ввести ключевое слово»');
+      setErrorMessage(messageSearch.badSearch);
     } else if (filterMovies.length === 0) {
-      setErrorMessage('«Ничего не найдено»');
+      setErrorMessage(messageSearch.notSearch);
     } else if ((filterMovies !== 0 && shorts && shortsMovies.length === 0)) {
-      setErrorMessage('«Ничего не найдено»');
+      setErrorMessage(messageSearch.notSearch);
     } else {
       setErrorMessage('');
     }

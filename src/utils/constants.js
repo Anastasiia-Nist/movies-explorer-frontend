@@ -1,7 +1,7 @@
 // URL
 export const URL_BEATFILM_MOVIES = 'https://api.nomoreparties.co';
-export const URL_BASE = 'https://api.diploma-by-anastasiia.nomoreparties.co';
-// export const URL_BASE = 'http://localhost:3000';
+// export const URL_BASE = 'https://api.diploma-by-anastasiia.nomoreparties.co';
+export const URL_BASE = 'http://localhost:3000';
 
 // ENDPOINTS
 export const ENDPOINT_ROOT = '/';
@@ -43,3 +43,21 @@ export function smoothScroll(evt) {
     block: 'start',
   });
 }
+// регулярные выражения
+export const REGEX_EMAIL = '^[a-zA-Z0-9+_.\\-]+@[a-zA-Z0-9]+\\.[a-zA-Z0-9]{2,}$';
+
+// SuccessRequestMessage
+export const SUCCESS_UPD = 'Обновление данных прошло успешно';
+
+export const PAGE_TABLET_HEADER = 800;
+// отображение фильмов на странице
+export const SHORT_FILM = 40;
+export const PAGE_DESKTOP = 1280;
+export const PAGE_TABLET = 760;
+
+export const MOVIES_DESKTOP_AMOUNT = 12;
+export const MOVIES_TABLET_AMOUNT = 8;
+export const MOVIES_MOBILE_AMOUNT = 5;
+
+export const MOVIES_DESKTOP_STEP = 3;
+export const MOVIES_MOBILE_STEP = 2;

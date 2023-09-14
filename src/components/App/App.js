@@ -26,6 +26,8 @@ import {
   ENDPOINT_PROFILE,
   ENDPOINT_MOVIES,
   ENDPOINT_SAVED_MOVIES,
+  SUCCESS_UPD,
+  SHORT_FILM,
 } from '../../utils/constants';
 
 function App() {
@@ -153,7 +155,7 @@ function App() {
       .patchUserInfo(name, email)
       .then((data) => {
         setCurrentUser(data);
-        setSuccessRequestMessage('Обновление данных прошло успешно');
+        setSuccessRequestMessage(SUCCESS_UPD);
       })
       .catch((err) => {
         if (err === statuses.conflict) {
@@ -173,7 +175,7 @@ function App() {
     );
     // фильтруем отфильтрованные фильмы по чекбоксу (короткометражки)
     const shortsMovies = filterMovies.filter(
-      ({ duration }) => duration < 40,
+      ({ duration }) => duration < SHORT_FILM,
     );
     return { filterMovies, shortsMovies };
   }
@@ -211,7 +213,6 @@ function App() {
       .then((newFilm) => {
         setSavedMovies([newFilm, ...savedMovies]);
         toggleSavedCard(evt);
-        console.log('Фильм успешно сохранён');
       })
       .catch(console.error);
   }
@@ -225,7 +226,6 @@ function App() {
         .then(() => {
           setSavedMovies(...[state => state.filter(c => c._id !== movie._id)]);
           toggleSavedCard(evt);
-          console.log('Фильм успешно удалён со страницы Сохранённые фильмы');
         })
         .catch(console.error);
     } else {
@@ -234,7 +234,6 @@ function App() {
         .then(() => {
           setSavedMovies(state => state.filter(c => c._id !== film._id));
           toggleSavedCard(evt);
-          console.log('Фильм успешно удалён со страницы Фильмы');
         })
         .catch(console.error);
     }

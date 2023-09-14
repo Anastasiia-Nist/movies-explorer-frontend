@@ -1,5 +1,6 @@
 import './Input.css';
 import { useLocation } from 'react-router-dom';
+import { ENDPOINT_PROFILE } from '../../utils/constants';
 
 function Input({
   label,
@@ -10,6 +11,7 @@ function Input({
   maxLength,
   value,
   placeholder,
+  pattern,
   onChange,
   errors,
   isValid,
@@ -18,16 +20,16 @@ function Input({
   const { pathname } = useLocation();
 
   return (
-    <div className={pathname === '/profile' ? 'input' : 'input-auth'}>
+    <div className={pathname === ENDPOINT_PROFILE ? 'input' : 'input-auth'}>
       <label
         className={
-          pathname === '/profile' ? 'input__label' : 'input-auth__label'
+          pathname === ENDPOINT_PROFILE ? 'input__label' : 'input-auth__label'
         }
       >
         {label}
       </label>
       <input
-        className={pathname === '/profile' ? 'input__item' : 'input-auth__item'}
+        className={pathname === ENDPOINT_PROFILE ? 'input__item' : 'input-auth__item'}
         id={id}
         name={name}
         type={type}
@@ -35,6 +37,8 @@ function Input({
         maxLength={maxLength}
         placeholder={placeholder}
         required
+        pattern={pattern ?? null}
+        title={`Введите корректное значение поля: ${name}`}
         onChange={onChange}
         value={value || ''}
         disabled={!isEdit && true}
@@ -43,7 +47,7 @@ function Input({
       {!isValid && (
         <span
           className={
-            pathname === '/profile'
+            pathname === ENDPOINT_PROFILE
               ? 'input-error input-error_active'
               : ' input-auth-error input-auth-error_active'
           }

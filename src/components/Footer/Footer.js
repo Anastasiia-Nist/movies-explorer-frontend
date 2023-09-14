@@ -1,14 +1,15 @@
 import './Footer.css';
 import { useLocation } from 'react-router-dom';
+import { ENDPOINT_MOVIES, ENDPOINT_ROOT, ENDPOINT_SAVED_MOVIES } from '../../utils/constants';
 
 function Footer() {
   const { pathname } = useLocation();
 
   return (
     <>
-      {pathname === '/'
-      || pathname === '/movies'
-      || pathname === '/saved-movies' ? (
+      {pathname === ENDPOINT_ROOT
+      || pathname === ENDPOINT_MOVIES
+      || pathname === ENDPOINT_SAVED_MOVIES ? (
         <footer className="footer">
           <div>
             <h3 className="footer__title">

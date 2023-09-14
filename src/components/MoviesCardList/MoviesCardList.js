@@ -3,7 +3,17 @@ import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import MoviesCard from '../MoviesCard/MoviesCard';
 import useResize from '../../hooks/useResize';
-import { ENDPOINT_MOVIES, ENDPOINT_SAVED_MOVIES } from '../../utils/constants';
+import {
+  ENDPOINT_MOVIES,
+  ENDPOINT_SAVED_MOVIES,
+  MOVIES_DESKTOP_AMOUNT,
+  MOVIES_DESKTOP_STEP,
+  MOVIES_MOBILE_AMOUNT,
+  MOVIES_MOBILE_STEP,
+  MOVIES_TABLET_AMOUNT,
+  PAGE_DESKTOP,
+  PAGE_TABLET,
+} from '../../utils/constants';
 
 function MoviesCardList({
   movies,
@@ -15,19 +25,27 @@ function MoviesCardList({
   const width = useResize();
   const { pathname } = useLocation();
   const [countMovies, setCountMovies] = useState(0);
-  const [step, setStep] = useState(2);
-  useEffect(() => {
-    if (width <= 780) setCountMovies(5);
-    if (width > 780 && width < 1280) {
-      setCountMovies(8);
-    }
-    if (width >= 1280) setStep(3);
-  }, [width]);
+  const [step, setStep] = useState(0);
 
   // показать больше фильмов
   function handleClickMore() {
     setCountMovies(countMovies + step);
   }
+  useEffect(() => {
+    if (width >= PAGE_DESKTOP) {
+      setCountMovies(MOVIES_DESKTOP_AMOUNT);
+      setStep(MOVIES_DESKTOP_STEP);
+    }
+    if (width > PAGE_TABLET && width < PAGE_DESKTOP) {
+      setCountMovies(MOVIES_TABLET_AMOUNT);
+      setStep(MOVIES_MOBILE_STEP);
+    }
+    if (width <= PAGE_TABLET) {
+      setCountMovies(MOVIES_MOBILE_AMOUNT);
+      setStep(MOVIES_MOBILE_STEP);
+    }
+  }, [width]);
+
   return (
     <>
       {errorMessage ? (

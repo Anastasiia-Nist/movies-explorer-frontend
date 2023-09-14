@@ -16,5 +16,9 @@ const messages = {
   updateError: 'Не удалось обновить данные пользователя',
   badRequestError: '«Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз»',
 };
+const messageSearch = {
+  badSearch: '«Нужно ввести ключевое слово»',
+  notSearch: '«Ничего не найдено»',
+};
 
-module.exports = { statuses, messages };
+module.exports = { statuses, messages, messageSearch };

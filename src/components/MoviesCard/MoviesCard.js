@@ -1,6 +1,6 @@
 import './MoviesCard.css';
 import { useEffect, useState, useContext } from 'react';
-import { URL_BEATFILM_MOVIES } from '../../utils/constants';
+import { ENDPOINT_SAVED_MOVIES, URL_BEATFILM_MOVIES } from '../../utils/constants';
 import CurrentUserContext from '../../context/CurrentUserContext';
 
 function MoviesCard({
@@ -48,7 +48,7 @@ function MoviesCard({
           <img
             className="movies-card__image"
             src={
-              pathname === '/saved-movies'
+              pathname === ENDPOINT_SAVED_MOVIES
                 ? `${movie.image}`
                 : `${URL_BEATFILM_MOVIES}${movie.image?.url}`
             }
@@ -59,7 +59,7 @@ function MoviesCard({
           <h2 className="movies-card__title">{movie.nameRU}</h2>
           <span className="movies-card__subtitle">{convertDuration()}</span>
         </div>
-        {pathname === '/saved-movies' && (
+        {pathname === ENDPOINT_SAVED_MOVIES && (
           <button
             className="movies-card__btn movies-card__btn-delete button"
             type="button"
@@ -67,7 +67,7 @@ function MoviesCard({
             onClick={onDelete}
           ></button>
         )}
-        {pathname !== '/saved-movies'
+        {pathname !== ENDPOINT_SAVED_MOVIES
           && (isSavedMovie ? (
             <button
               className="movies-card__btn movies-card__btn-save button movies-card__save-btn_active"

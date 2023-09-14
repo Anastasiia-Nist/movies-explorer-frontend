@@ -3,6 +3,7 @@ import AppContext from '../../context/AppContext';
 import useFormAndValidation from '../../hooks/useFormAndValidation';
 import Input from '../Input/Input';
 import Auth from '../Auth/Auth';
+import { ENDPOINT_SIGNIN, REGEX_EMAIL } from '../../utils/constants';
 
 function Register({ handleRegister, requestMessage, resetErrorRequestMessage }) {
   const app = useContext(AppContext);
@@ -24,7 +25,7 @@ function Register({ handleRegister, requestMessage, resetErrorRequestMessage }) 
         isValid={isValid}
         buttonText={app.isLoading ? 'Регистрация...' : 'Зарегистрироваться'}
         text="Уже зарегистрированы?"
-        link="/signin"
+        link={ENDPOINT_SIGNIN}
         requestMessage={requestMessage}
         resetRequestMessage={resetErrorRequestMessage}
       >
@@ -50,6 +51,7 @@ function Register({ handleRegister, requestMessage, resetErrorRequestMessage }) 
           type="email"
           placeholder="E-mail"
           required
+          pattern={REGEX_EMAIL}
           value={values.email}
           onChange={handleChange}
           errors={errors.email}

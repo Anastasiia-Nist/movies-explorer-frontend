@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import CurrentUserContext from '../../context/CurrentUserContext';
 import useFormAndValidation from '../../hooks/useFormAndValidation';
 import Input from '../Input/Input';
+import { REGEX_EMAIL } from '../../utils/constants';
 
 function Profile({
   onLogout,
@@ -76,6 +77,7 @@ function Profile({
               type="email"
               placeholder="E-mail"
               required
+              pattern={REGEX_EMAIL}
               value={values.email}
               onChange={handleChange}
               errors={errors.email}

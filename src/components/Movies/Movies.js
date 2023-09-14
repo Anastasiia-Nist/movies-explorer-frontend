@@ -4,7 +4,7 @@ import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import SearchForm from '../SearchForm/SearchForm';
 import Preloader from '../Preloader/Preloader';
 import moviesApi from '../../utils/MoviesApi';
-import { messages } from '../../utils/errors';
+import { messageSearch, messages } from '../../utils/errors';
 
 function Movies({
   setIsLoading, onSavedMovie, onDeleteMovie, onfilteredMovies, savedMovies,
@@ -38,14 +38,14 @@ function Movies({
 
         // сообщения об ошибке при поиске
         if (allMovies.length !== 0 && search === '') {
-          setErrorMessage('«Нужно ввести ключевое слово»');
-          localStorage.setItem('errorMessage', '«Нужно ввести ключевое слово»');
+          setErrorMessage(messageSearch.badSearch);
+          localStorage.setItem('errorMessage', messageSearch.badSearch);
         } else if (filterMovies.length === 0) {
-          setErrorMessage('«Ничего не найдено»');
-          localStorage.setItem('errorMessage', '«Ничего не найдено»');
+          setErrorMessage(messageSearch.notSearch);
+          localStorage.setItem('errorMessage', messageSearch.notSearch);
         } else if ((filterMovies !== 0 && shorts && shortsMovies.length === 0)) {
-          setErrorMessage('«Ничего не найдено»');
-          localStorage.setItem('errorMessage', '«Ничего не найдено»');
+          setErrorMessage(messageSearch.notSearch);
+          localStorage.setItem('errorMessage', messageSearch.notSearch);
         } else {
           setErrorMessage('');
           localStorage.setItem('errorMessage', '');

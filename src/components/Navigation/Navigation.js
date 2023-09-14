@@ -11,10 +11,11 @@ import {
   ENDPOINT_MOVIES,
   ENDPOINT_SAVED_MOVIES,
   ENDPOINT_ROOT,
+  PAGE_TABLET_HEADER,
 } from '../../utils/constants';
 
 function Navigation({ loggedIn, pathname }) {
-  const isMobile = useResize() <= 800;
+  const isMobile = useResize() <= PAGE_TABLET_HEADER;
   const [isMenuOpened, setIsMenuOpened] = useState(false);
 
   function handleOpenMenu() {
@@ -123,7 +124,7 @@ function Navigation({ loggedIn, pathname }) {
                 to={ENDPOINT_PROFILE}
               >
                 Аккаунт
-                {pathname !== '/' ? (
+                {pathname !== ENDPOINT_ROOT ? (
                   <img
                     className="navigation__account-img"
                     src={accImg}

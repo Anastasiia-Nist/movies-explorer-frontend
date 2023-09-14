@@ -1,11 +1,12 @@
 import './PageNotFound.css';
 import { useNavigate } from 'react-router-dom';
+import { ENDPOINT_ROOT } from '../../utils/constants';
 
 function PageNotFound() {
   const navigate = useNavigate();
 
   function handleStepBack() {
-    navigate('/');
+    navigate(ENDPOINT_ROOT);
   }
 
   return (
