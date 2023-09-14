@@ -31,7 +31,6 @@ import {
 function App() {
   const jwt = localStorage.getItem('jwt');
   const isLoggedIn = JSON.parse(localStorage.getItem('isLoggedIn'));
-  // const savedMovies = JSON.parse(localStorage.getItem('savedMovies'));
   const navigate = useNavigate();
 
   const [successRequestMessage, setSuccessRequestMessage] = useState('');
@@ -137,12 +136,14 @@ function App() {
   // выход из аккаунта
   function handleLogOut() {
     setCurrentUser({});
+    setSavedMovies([]);
     localStorage.removeItem('jwt');
     localStorage.removeItem('isLoggedIn');
-    // не знаю нужно ли очищать результаты поиска при выходе из аккаунта
-    localStorage.removeItem('allMovies');
+    // очищаем результаты поиска при выходе из аккаунта
     localStorage.removeItem('shorts');
     localStorage.removeItem('search');
+    localStorage.removeItem('searchMovies');
+    localStorage.removeItem('errorMessage');
     navigate(ENDPOINT_ROOT);
   }
 

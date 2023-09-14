@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import AppContext from '../../context/AppContext';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import SearchForm from '../SearchForm/SearchForm';
@@ -16,11 +16,6 @@ function Movies({
   const errorMessageDefault = localStorage.getItem('errorMessage') ?? '';
   const [searchMovies, setSearchMovies] = useState(searchMoviesDefault);
   const [errorMessage, setErrorMessage] = useState(errorMessageDefault);
-
-  useEffect(() => {
-    if (searchMovies.length === 0) setErrorMessage('«Ничего не найдено»');
-    if (inputSearchDefault === '') setErrorMessage('«Нужно ввести ключевое слово»');
-  }, [searchMovies]);
 
   // отправка формы
   function handleSubmit(search, shorts) {
@@ -44,12 +39,16 @@ function Movies({
         // сообщения об ошибке при поиске
         if (allMovies.length !== 0 && search === '') {
           setErrorMessage('«Нужно ввести ключевое слово»');
+          localStorage.setItem('errorMessage', '«Нужно ввести ключевое слово»');
         } else if (filterMovies.length === 0) {
           setErrorMessage('«Ничего не найдено»');
+          localStorage.setItem('errorMessage', '«Ничего не найдено»');
         } else if ((filterMovies !== 0 && shorts && shortsMovies.length === 0)) {
           setErrorMessage('«Ничего не найдено»');
+          localStorage.setItem('errorMessage', '«Ничего не найдено»');
         } else {
           setErrorMessage('');
+          localStorage.setItem('errorMessage', '');
         }
       })
       .catch(() => setErrorMessage(messages.badRequestError))
