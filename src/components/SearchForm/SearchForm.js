@@ -7,9 +7,10 @@ function SearchForm({ onSearch, isShorts, inputSearchDefault }) {
   const [isShortMovies, setIsShortMovie] = useState(isShorts ?? false);
 
   function handleCheckbox() {
+    const isSearchChecked = true;
     setIsShortMovie(!isShortMovies);
     // повторная отправка для фильтрации при нажатии на чекбокс
-    onSearch(inputSearch, !isShortMovies);
+    onSearch(inputSearch, !isShortMovies, isSearchChecked);
   }
   function handleInputChange(evt) {
     setInputSearch(evt.target.value);
@@ -43,7 +44,10 @@ function SearchForm({ onSearch, isShorts, inputSearchDefault }) {
             </button>
           </div>
           <div className="search__checkbox-container">
-            <FilterCheckbox onChange={handleCheckbox} isShortMovies={isShortMovies}/>
+            <FilterCheckbox
+              onChange={handleCheckbox}
+              isShortMovies={isShortMovies}
+            />
           </div>
         </form>
       </div>

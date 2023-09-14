@@ -2,14 +2,16 @@ import { useState } from 'react';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import SearchForm from '../SearchForm/SearchForm';
 import { messageSearch } from '../../utils/errors';
+import { SHORT_FILM } from '../../utils/constants';
 
 function SavedMovies({ onDeleteMovie, onfilteredMovies, movies }) {
   const [errorMessage, setErrorMessage] = useState('');
+  const [searchMovies, setSearchMovies] = useState([]);
   // если пользователь ещё ничего не вводил в поиск
   const [searchActive, setSearchActive] = useState(false);
-  const [searchMovies, setSearchMovies] = useState([]);
+
   // отправка формы
-  function handleSubmit(search, shorts) {
+  function handleSubmit(search, shorts, isSearchChecked) {
     setSearchActive(true);
     // отфильтровываем фильмы по ключевому слову и короткометражки
     const { filterMovies, shortsMovies } = onfilteredMovies(
@@ -19,8 +21,17 @@ function SavedMovies({ onDeleteMovie, onfilteredMovies, movies }) {
     if (shorts) {
       setSearchMovies(shortsMovies);
     } else setSearchMovies(filterMovies);
+    if (isSearchChecked && search === '') {
+      if (shorts) {
+        setSearchMovies(movies.filter(
+          ({ duration }) => duration < SHORT_FILM,
+        ));
+      } else {
+        setSearchMovies(movies);
+      }
+    }
     // сообщения об ошибках после поиска
-    if (search === '') {
+    if (!isSearchChecked && search === '') {
       setErrorMessage(messageSearch.badSearch);
     } else if (filterMovies.length === 0) {
       setErrorMessage(messageSearch.notSearch);
@@ -30,6 +41,7 @@ function SavedMovies({ onDeleteMovie, onfilteredMovies, movies }) {
       setErrorMessage('');
     }
   }
+
   return (
     <main className="main">
       <SearchForm
