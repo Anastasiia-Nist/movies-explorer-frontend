@@ -31,7 +31,9 @@ function SavedMovies({ onDeleteMovie, onfilteredMovies, movies }) {
   }
   return (
     <main className="main">
-      <SearchForm onSearch={handleSubmit} />
+      <SearchForm
+        onSearch={handleSubmit}
+      />
       <MoviesCardList
         movies={searchActive ? searchMovies : movies}
         onDeleteMovie={onDeleteMovie}

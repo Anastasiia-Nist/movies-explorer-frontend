@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import AppContext from '../../context/AppContext';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import SearchForm from '../SearchForm/SearchForm';
@@ -10,21 +10,29 @@ function Movies({
   setIsLoading, onSavedMovie, onDeleteMovie, onfilteredMovies, savedMovies,
 }) {
   const app = useContext(AppContext);
-  const movies = JSON.parse(localStorage.getItem('allMovies')) || [];
-  const searchMoviesDefault = JSON.parse(localStorage.getItem('searchMovies')) || [];
-  // const isShorts = JSON.parse(localStorage.getItem('shorts')) || false;
+  const searchMoviesDefault = JSON.parse(localStorage.getItem('searchMovies')) ?? [];
+  const isShorts = JSON.parse(localStorage.getItem('shorts')) ?? false;
+  const inputSearchDefault = localStorage.getItem('search') ?? '';
+  const errorMessageDefault = localStorage.getItem('errorMessage') ?? '';
   const [searchMovies, setSearchMovies] = useState(searchMoviesDefault);
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState(errorMessageDefault);
+
+  useEffect(() => {
+    if (searchMovies.length === 0) setErrorMessage('«Ничего не найдено»');
+    if (inputSearchDefault === '') setErrorMessage('«Нужно ввести ключевое слово»');
+  }, [searchMovies]);
 
   // отправка формы
   function handleSubmit(search, shorts) {
     setIsLoading(true);
     moviesApi
       .getMovies()
-      .then((allMoviesArr) => {
-        localStorage.setItem('allMovies', JSON.stringify(allMoviesArr));
+      .then((allMovies) => {
+        localStorage.setItem('search', search);
+        localStorage.setItem('shorts', shorts);
         // отфильтровываем фильмы по ключевому слову и короткометражки
-        const { filterMovies, shortsMovies } = onfilteredMovies(movies, search);
+        const { filterMovies, shortsMovies } = onfilteredMovies(allMovies, search);
+
         if (shorts) {
           setSearchMovies(shortsMovies);
           localStorage.setItem('searchMovies', JSON.stringify(shortsMovies));
@@ -32,24 +40,30 @@ function Movies({
           setSearchMovies(filterMovies);
           localStorage.setItem('searchMovies', JSON.stringify(filterMovies));
         }
+
+        // сообщения об ошибке при поиске
+        if (allMovies.length !== 0 && search === '') {
+          setErrorMessage('«Нужно ввести ключевое слово»');
+        } else if (filterMovies.length === 0) {
+          setErrorMessage('«Ничего не найдено»');
+        } else if ((filterMovies !== 0 && shorts && shortsMovies.length === 0)) {
+          setErrorMessage('«Ничего не найдено»');
+        } else {
+          setErrorMessage('');
+        }
       })
       .catch(() => setErrorMessage(messages.badRequestError))
       .finally(() => {
         setIsLoading(false);
       });
-
-    // сообщения об ошибке при поиске
-    if (movies.length !== 0 && search === '') {
-      setErrorMessage('«Нужно ввести ключевое слово»');
-    } else if ((movies.length !== 0 && searchMovies.length === 0)) {
-      setErrorMessage('«Ничего не найдено»');
-    } else {
-      setErrorMessage('');
-    }
   }
   return (
     <main className="main">
-      <SearchForm onSearch={handleSubmit} />
+      <SearchForm
+        onSearch={handleSubmit}
+        isShorts={isShorts}
+        inputSearchDefault={inputSearchDefault}
+      />
       {app.isLoading && <Preloader />}
       <MoviesCardList
         movies={searchMovies}
