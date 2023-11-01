@@ -1,0 +1,30 @@
+.header__auth {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+}
+.header__auth-link {
+  color: #000;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+}
+.header__auth-link_color_dark {
+  border-radius: 3px;
+  background: #000;
+  color: #fff;
+  padding: 8px 20px;
+}
+@media screen and (max-width: 500px) {
+  .header__auth {
+    gap: 14px;
+  }
+  .header__auth-link {
+    font-size: 10px;
+  }
+  .header__auth-link_color_dark {
+    padding: 5px 12px;
+  }
+}

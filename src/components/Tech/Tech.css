@@ -1,0 +1,25 @@
+.technology__item {
+  min-height: 60px;
+  min-width: 90px;
+  background-color: #e8e8e8;
+  border-radius: 10px;
+  padding-top: 21px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.56px;
+}
+@media screen and (max-width: 800px) {
+  .technology__item {
+    min-height: 57px;
+    min-width: 84px;
+    font-size: 12px;
+    letter-spacing: -0.48px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .technology__item {
+    width: fit-content;
+  }
+}

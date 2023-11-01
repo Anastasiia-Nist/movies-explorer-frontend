@@ -1,0 +1,104 @@
+.auth {
+  padding-bottom: 70px;
+}
+.auth__container {
+  max-width: 396px;
+  margin: 0 auto;
+}
+.auth__title {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.auth__form {
+  padding: 20px 0 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.auth__inputs-container {
+  width: 100%;
+}
+.auth__btn-submit {
+  border-radius: 3px;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  padding: 13px 0;
+  width: 100%;
+}
+.auth__btn-submit:disabled {
+  background-color: #f8f8f8;
+  color: #c2c2c2;
+}
+.auth__btn-submit_type_login {
+  margin-top: 178px;
+}
+.auth__btn-submit_type_register {
+  margin-top: 90px;
+}
+.auth__text {
+  padding-top: 16px;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  justify-content: center;
+}
+.auth__span {
+  color: #a0a0a0;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.auth__link {
+  color: #000;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.auth__submit-error {
+  position: absolute;
+  text-align: center;
+  bottom: 60px;
+  color: #ff004c;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+@media screen and (max-width: 500px) {
+  .auth {
+    padding-bottom: 30px;
+  }
+  .auth__form {
+    padding-top: 60px;
+  }
+  .auth__container {
+    max-width: 260px;
+  }
+  .auth__title {
+    text-align: center;
+  }
+  .auth__span {
+    font-size: 12px;
+  }
+  .auth__btn-submit_type_login {
+    margin-top: 266px;
+  }
+  .auth__btn-submit_type_register {
+    margin-top: 177px;
+  }
+}
