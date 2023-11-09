@@ -30,6 +30,19 @@ https://github.com/Anastasiia-Nist/movies-explorer-frontend/assets/118123887/01d
   - Функциональные компоненты
   - Хуки
 
+## Установка и запуск проекта:
+Клонировать репозиторий:
+
+    git clone https://github.com/Anastasiia-Nist/movies-explorer-frontend.git
+
+Установить зависимости:
+
+    npm install
+
+Запустить проект:
+
+    npm run start
+
 ## Ссылки на проект
 
 IP 51.250.12.228
