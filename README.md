@@ -42,11 +42,3 @@ https://github.com/Anastasiia-Nist/movies-explorer-frontend/assets/118123887/01d
 Запустить проект:
 
     npm run start
-
-## Ссылки на проект
-
-IP 51.250.12.228
-
-Frontend https://diploma-by-anastasiia.nomoreparties.co
-
-Backend https://api.diploma-by-anastasiia.nomoreparties.co
