@@ -30,6 +30,7 @@
       "react/jsx-props-no-spreading": "off",
       "prefer-arrow-callback": ["error", { "allowNamedFunctions": true }],
       "arrow-parens": [2, "as-needed", { "requireForBlockBody": true }],
-      "prefer-promise-reject-errors": "off"
+      "prefer-promise-reject-errors": "off",
+      "linebreak-style": "off"
     }
   }
